@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - Coin
+  - Enemy
+  - Bullet
+  - Water
+  - Checkpoint
+  - MovingGround
+  - MovingGroundX
   layers:
   - Default
   - TransparentFX

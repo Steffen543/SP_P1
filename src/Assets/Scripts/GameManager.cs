@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     private float points = 0f;
+    public GameObject Checkpoint;
 
 	// Use this for initialization
 	void Start () {
