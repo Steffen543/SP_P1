@@ -8,9 +8,8 @@ public class PlayerInput  {
     public float Horizontal { get; set; }
     public bool Jump { get; set; }
     public bool Run { get; set; }
-    public bool SlowDown { get; set; }
     public bool Move { get; set; }
-    public bool SwitchFlyMode { get; set; }
+
 
     public bool Forward { get; set; }
     public bool Backward { get; set; }
@@ -22,21 +21,13 @@ public class PlayerInput  {
         Vertical = Input.GetAxis("Vertical");
         Horizontal = Input.GetAxis("Horizontal");
         Jump = Input.GetKey(KeyCode.Space);
-        
-        //Jump = Input.GetAxis("Jump") != 0;
         Run = Input.GetKey(KeyCode.LeftShift);
-        SlowDown = Input.GetKey(KeyCode.LeftAlt);
-        SwitchFlyMode = Input.GetKeyUp(KeyCode.M);
-
         Forward = Input.GetKey(KeyCode.W);
         Backward = Input.GetKey(KeyCode.S);
         Left = Input.GetKey(KeyCode.A);
         Right = Input.GetKey(KeyCode.D);
-
-
         Move = Vertical != 0 || Horizontal != 0;
-
-        Vertical = CalcRightInput(-0.7f, 1f, Vertical);
+        //Vertical = CalcRightInput(-0.7f, 1f, Vertical);
     }
 
 

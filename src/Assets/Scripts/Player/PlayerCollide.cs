@@ -6,37 +6,28 @@ public class PlayerCollide : MonoBehaviour
 {
 
     public GameManager GameManager;
-    private bool moving;
-    private float collisionLeaveTimer = 0f;
+	private Rigidbody rigidbody;
   
 
     // Use this for initialization
     void Start () {
-		
+		rigidbody = GetComponent<Rigidbody>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     private void FixedUpdate()
     {
         var isOutOfField = transform.position.y < -20;
         if (isOutOfField)
         {
-           
             transform.position = GameManager.Checkpoint.transform.position;
-            //transform.rotation = GameManager.Checkpoint.transform.rotation;
-            Debug.Log(GameManager.Checkpoint.transform.rotation);
             transform.rotation = Quaternion.Euler(GameManager.Checkpoint.transform.rotation.x, GameManager.Checkpoint.transform.rotation.y, GameManager.Checkpoint.transform.rotation.z);
-            GetComponent<Rigidbody>().velocity = Vector3.zero;
-            GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+            rigidbody.velocity = Vector3.zero;
+            rigidbody.angularVelocity = Vector3.zero;
+			Debug.Log("Player is out of field. will be resetted now");
         }
             
     }
-
-   
 
 
     void OnCollisionStay(Collision collisionInfo)
@@ -83,11 +74,7 @@ public class PlayerCollide : MonoBehaviour
             transform.position = GameManager.Checkpoint.transform.position;
             transform.rotation = GameManager.Checkpoint.transform.rotation;
             GetComponent<Rigidbody>().velocity = Vector3.zero;
-            Debug.Log("Collided with Water");
+			Debug.Log("Player triggered water. will be resetted now");
         }
-       
-
     }
-
-
 }

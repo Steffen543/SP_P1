@@ -20,23 +20,18 @@ namespace Assets.Scripts.Player
        
         void FixedUpdate()
         {
-           
-            //CanJump = GetComponent<Rigidbody>().velocity.y == 0;
             IsFalling = GetComponent<Rigidbody>().velocity.y < -0.05;
             IsJumping = GetComponent<Rigidbody>().velocity.y > 0 && !JetPackEnabled;
            
         }
 
-
         void OnCollisionStay(Collision collisionInfo)
         {
             if (collisionInfo.contacts.Length > 0)
             {
-              
                 ContactPoint contact = collisionInfo.contacts[0];
                 CollisionForward = contact.normal.z < 0;
                 IsGrounded = contact.normal.y > 0;
-
             }
         }
 

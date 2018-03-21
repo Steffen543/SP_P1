@@ -11,7 +11,7 @@ public class Shoot : MonoBehaviour
 
     public float Speed = 2000;
 
-    // 100 ms
+    // 300 ms
     public float ShootRate = 0.3f;
 
     public AudioSource ShootSound;
@@ -27,7 +27,6 @@ public class Shoot : MonoBehaviour
         {
             if (timer >= ShootRate)
             {
-   
                 var rotation = transform.rotation;
                 rotation.y = 0;
                 GameObject g = (GameObject) Instantiate(Bullet, transform.position, rotation);
@@ -39,11 +38,7 @@ public class Shoot : MonoBehaviour
             {
                 //ShootSound.mute = true;
             }
-
-
-           
         }
-
     }
 }
 
